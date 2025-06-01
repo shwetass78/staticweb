@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: staticwebsite-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: staticwebsite
+  template:
+    metadata:
+      labels:
+        app: staticwebsite
+    spec:
+      containers:
+        - name: staticwebsite
+          image: shwetakumari1234/staticwebsite:v1
+          ports:
+            - containerPort: 80
